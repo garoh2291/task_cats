@@ -40,7 +40,6 @@ export const addCategoryDetailsThunk = createAsyncThunk(
 const categorySlice = createSlice({
   name: "categories",
   initialState: {
-    selectedCategory: null,
     categories: null,
     items: [],
     error: null,
@@ -73,13 +72,6 @@ const categorySlice = createSlice({
         };
       }
     },
-    setSelectedCategory(state, action) {
-      const selectedCategory = action.payload.id;
-      return {
-        ...state,
-        selectedCategory,
-      };
-    },
   },
   extraReducers: {
     [setCategoriesThunk.rejected]: (state, action) => {
@@ -109,7 +101,6 @@ const categorySlice = createSlice({
   },
 });
 
-export const { setCategories, setCategoryDetails, setSelectedCategory } =
-  categorySlice.actions;
+export const { setCategories, setCategoryDetails } = categorySlice.actions;
 
 export default categorySlice.reducer;
